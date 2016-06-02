@@ -1,0 +1,22 @@
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+
+[jnt:facebookFeed] > jnt:content, mix:title, jmix:socialComponent
+ - jcr:title (string) internationalized
+ - pageName (string) mandatory nofulltext
+ - albumName (string) = 'Timeline Photos' nofulltext
+ - maxEntries (long) = '5'
+
+
+[jnt:facebookPhotoAlbumGallery] > jnt:content, jmix:socialComponent, mix:title
+ - jcr:title (string) internationalized
+ - pageName (string) mandatory nofulltext
+ - hideTimelinePhotos (boolean) = true autocreated
+ - hideMobileUploads (boolean) = true autocreated
+ - hideCoverPhotos (boolean) = true autocreated
+
+ [jmix:facebookFeedConfiguration] mixin
+  extends = jnt:virtualsite
+  itemtype = options
+ - applicationId (string) mandatory nofulltext
+ - applicationSecret (string) mandatory nofulltext
