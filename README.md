@@ -29,3 +29,6 @@ When you insert a Facebook Feed component in Edit mode, the following fields wil
 ==========================================
 
 This component is similar to the Facebook Feed one except that you only provide a Facebook page and you can then browse through the different album of the Facebook page.
+
+ DISCLAIMER:
+ This code has been pulled from a different a project and needs to be code reviewed
