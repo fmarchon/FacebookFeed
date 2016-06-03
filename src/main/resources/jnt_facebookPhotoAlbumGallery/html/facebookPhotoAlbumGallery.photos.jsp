@@ -63,7 +63,7 @@
         initializeFacebookGalleryPhotos = function () {
         	var _config = {
         		/* shared class used to activate all photoswipe enabled galleries */
-        		photoswipeSelector: '.photoswipe-gallery',
+        		photoswipeSelector: '.photoswipe-gallery${uuid}',
         		renderGallery: false,
         	};
         	return _config;
@@ -79,7 +79,7 @@
     <h1></h1>
     <c:url var="albumDetalUrl" value="${url.base}${currentNode.path}.photos.html"/>
 
-    <div class='row photoswipe-gallery media-gallery'>
+    <div class='row photoswipe-gallery${uuid} media-gallery'>
         <c:forEach items="${photos}" var="photo">
             <figure class='col-md-4 col-lg-3 col-sm-6 col-xs-12'>
                 <div class="image" src="${photo.url}" height="${photo.height}" width="${photo.width}" style="background-image: url('${photo.url}');"></div>

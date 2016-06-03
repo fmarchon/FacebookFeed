@@ -25,6 +25,7 @@
 <template:addResources type="css" resources="facebookfeed.css"/>
 <template:addResources type="javascript" resources="facebookfeed.js"/>
 
+<c:set var="uuid" value="${currentNode.identifier}"/>
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="siteNode" value="${renderContext.mainResource.node.resolveSite}"/>
 <div class="no-padding feed-component image-feed facebook">
@@ -56,13 +57,13 @@
                         initializeFacebookPhotos = function () {
                             var _config = {
                                 /* shared class used to activate all photoswipe enabled galleries */
-                                photoswipeSelector: '.photoswipe-gallery',
+                                photoswipeSelector: '.photoswipe-gallery${uuid}',
                                 renderGallery: true,
                                 /* configuration for each gallery */
                                 galleries: [
                                     {
                                         /* where each gallery will be injected*/
-                                        domEntrypoint: '#custom-gallery',
+                                        domEntrypoint: '#custom-gallery${uuid}',
                                         /* default height and width to be used if one isn't provided per image configuration, REQUIRED */
                                         defaultHeight: '315',
                                         defaultWidth: '446',
@@ -91,7 +92,7 @@
                     <h2>${title}</h2>
                 </div>
             </c:if>
-            <div id="custom-gallery" class="photoswipe-gallery"></div>
+            <div id="custom-gallery${uuid}" class="photoswipe-gallery${uuid}"></div>
             <div class="clearfix"></div>
             <div class="component-footer">
                 <a href="http://www.facebook.com/${facebookManager.pageName}" class="footerlink" target="_blank"><fmt:message

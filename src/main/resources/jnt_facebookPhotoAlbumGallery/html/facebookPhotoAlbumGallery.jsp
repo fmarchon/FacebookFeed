@@ -20,10 +20,12 @@
 <template:addResources type="css" resources="bootstrap.min.css" />
 <template:addResources type="css" resources="facebookfeed.css"/>
 
+<c:set var="uuid" value="${currentNode.identifier}"/>
 <c:set var="siteNode" value="${renderContext.mainResource.node.resolveSite}"/>
 <c:set var="hideTimelinePhotos" value="${currentNode.properties['hideTimelinePhotos'].boolean}"/>
 <c:set var="hideMobileUploads" value="${currentNode.properties['hideMobileUploads'].boolean}"/>
 <c:set var="hideCoverPhotos" value="${currentNode.properties['hideCoverPhotos'].boolean}"/>
+<div class="margin-top-20 margin-bottom-20"/>
 <c:choose>
     <c:when test="${jcr:isNodeType(siteNode, 'jmix:facebookFeedConfiguration') and
     siteNode.properties['applicationId'] != null and
@@ -54,7 +56,7 @@
 
                 <c:choose>
                     <c:when test="${not empty albums}">
-                        <div class='row media-gallery'>
+                        <div class='media-gallery row'>
                             <c:forEach items="${albums}" var="album">
                                 <c:choose>
                                     <c:when test="${((hideTimelinePhotos and (album.name eq 'Timeline Photos')) or (hideMobileUploads and (album.name eq 'Mobile Uploads')) or (hideCoverPhotos and (album.name eq 'Cover Photos')))}">
@@ -70,6 +72,7 @@
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
+                            <div class="clear"></div>
                         </div>
                     </c:when>
                     <c:otherwise>
@@ -83,4 +86,5 @@
         <fmt:message key="label.missing_app_id_secret"/>
     </c:otherwise>
 </c:choose>
+</div>
 
