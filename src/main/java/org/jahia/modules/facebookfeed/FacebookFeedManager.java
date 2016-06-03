@@ -122,6 +122,12 @@ public class FacebookFeedManager {
     public List<FacebookPhoto> retrievePhotosFromAlbum()
     {
         initialize();
+        try{
+            client.fetchObject(pageName, Page.class);
+        }catch (com.restfb.exception.FacebookGraphException e){
+            logger.error("Facebook page '"+pageName+"' does not exist");
+            return null;
+        }
         String albumId = getAlbumId(this.albumName);
         if (albumId!= null){
             Connection<FacebookPhoto> photos = client.fetchConnection(String.format("%s/photos", albumId),

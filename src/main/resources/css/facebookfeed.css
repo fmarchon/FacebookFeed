@@ -7,10 +7,6 @@
     padding: 0;
 }
 
-.feed-component {
-    color: white;
-}
-
 .feed-component .feed-title {
     display: inline-block;
     font-size: 20px;
