@@ -23,6 +23,7 @@
 <template:addResources type="javascript" resources="photoswipe/photoswipe-ui-default.min.js"/>
 <template:addResources type="css" resources="bootstrap.min.css" />
 <template:addResources type="css" resources="facebookfeed.css" />
+<template:addResources type="javascript" resources="facebookfeed.js" />
 
 <c:set var="siteNode" value="${renderContext.mainResource.node.resolveSite}"/>
 
