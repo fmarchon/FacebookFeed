@@ -69,7 +69,7 @@
         	};
         	return _config;
         };
-        window._setGalleryComponentConfiguration.push(initializeFacebookGalleryPhotos);
+        $(document).ready(function () {window._setGalleryComponentConfiguration.push(initializeFacebookGalleryPhotos);})
       </script>
     </template:addResources>
 
